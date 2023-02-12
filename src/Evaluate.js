@@ -16,6 +16,15 @@ export default class Evaluate extends BrokenScriptVisitor {
   add(left, right) {
     return this.getValueByCtx(left) + this.getValueByCtx(right);
   }
+  sub(left, right) {
+    return this.getValueByCtx(left) - this.getValueByCtx(right);
+  }
+  gt(left, right) {
+    return this.getValueByCtx(left) > this.getValueByCtx(right);
+  }
+  lt(left, right) {
+    return this.getValueByCtx(left) < this.getValueByCtx(right);
+  }
   visitProgram(ctx) {
     return this.visitStatements(ctx.statements());
   }
@@ -42,8 +51,44 @@ export default class Evaluate extends BrokenScriptVisitor {
     }
     return returnValue;
   }
-  visitIfStatement(ctx) {}
-  visitForStatement(ctx) {}
+  visitIfStatement(ctx) {
+    let returnValue;
+    const conditionValue = this.visitParExpression(ctx.parExpression());
+    if (conditionValue) {
+      returnValue = this.visitBlock(ctx.block(0));
+    } else if (ctx.Else()) {
+      returnValue = this.visitBlock(ctx.block(1));
+    }
+    return returnValue;
+  }
+  visitParExpression(ctx) {
+    return this.visitExpression(ctx.expression());
+  }
+  visitForStatement(ctx) {
+    const forExpressionList = ctx.forExpressionList();
+    const block = ctx.block();
+    const forInit = forExpressionList.forInit;
+    const forUpdate = forExpressionList.forUpdate;
+    const forControl = forExpressionList.forControl;
+    let returnValue = null;
+
+    if (forInit) {
+      this.visitVariableStatement(forInit);
+    }
+
+    while (true) {
+      const condition = forControl ? this.visitExpression(forControl) : true;
+      if (!condition) {
+        break;
+      }
+      returnValue = this.visitBlock(block);
+      if (forUpdate) {
+        this.visitExpression(forUpdate);
+      }
+    }
+
+    return returnValue;
+  }
   visitVariableStatement(ctx) {
     // varType variableDeclareList
     let returnValue = null;
@@ -77,6 +122,9 @@ export default class Evaluate extends BrokenScriptVisitor {
         case BrokenScriptParser.ADD:
           value = this.add(left, right);
           break;
+        case BrokenScriptParser.SUB:
+          value = this.sub(left, right);
+          break;
         case BrokenScriptParser.ASSIGN:
           let rightValue = this.getValueByCtx(right);
           if (!left.primary()?.Identifier()) {
@@ -88,6 +136,12 @@ export default class Evaluate extends BrokenScriptVisitor {
             this.variableContainer.set(idName, rightValue);
             value = rightValue;
           }
+          break;
+        case BrokenScriptParser.GT:
+          value = this.gt(left, right);
+          break;
+        case BrokenScriptParser.LT:
+          value = this.lt(left, right);
           break;
         default:
           console.warn("未实现的操作类型");
@@ -106,7 +160,7 @@ export default class Evaluate extends BrokenScriptVisitor {
       if (this.variableContainer.has(idName)) {
         value = this.variableContainer.get(idName);
       } else {
-        throw new Error(`变量未定义`);
+        throw new Error(`变量未定义:${idName}`);
       }
     }
     return value;

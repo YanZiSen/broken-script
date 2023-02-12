@@ -33,7 +33,7 @@ forStatement
   : For forExpressionList block;
 
 forExpressionList:
-  '(' forInit=variableStatement? ';' expression? ';' forUpdate=expression? ')' // 起个别名区分这几个表达式
+  '(' forInit=variableStatement? ';' forControl=expression? ';' forUpdate=expression? ')' // 起个别名区分这几个表达式
   ;
 
 variableStatement
@@ -49,7 +49,8 @@ variableDeclare
 
 expression
   : primary
-  | expression bop=('+'|'-'|'*'|'/') expression
+  | expression bop=('*'|'/') expression
+  | expression bop=('+'|'-') expression
   | expression bop=('>'|'>='|'<'|'<=') expression
   | expression bop=('='|'+='|'-=') expression
   ;

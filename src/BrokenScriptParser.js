@@ -4,42 +4,43 @@ import antlr4 from 'antlr4';
 import BrokenScriptListener from './BrokenScriptListener.js';
 import BrokenScriptVisitor from './BrokenScriptVisitor.js';
 
-const serializedATN = [4,1,24,121,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,
+const serializedATN = [4,1,24,124,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,
 4,2,5,7,5,2,6,7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,
 1,0,1,0,1,1,5,1,30,8,1,10,1,12,1,33,9,1,1,2,1,2,1,2,1,2,1,2,1,2,3,2,41,8,
 2,1,3,1,3,4,3,45,8,3,11,3,12,3,46,1,3,1,3,1,4,1,4,1,4,1,4,1,4,3,4,56,8,4,
 1,5,1,5,1,5,1,5,1,6,1,6,1,6,1,6,1,7,1,7,3,7,68,8,7,1,7,1,7,3,7,72,8,7,1,
 7,1,7,3,7,76,8,7,1,7,1,7,1,8,1,8,1,8,1,9,1,9,1,9,5,9,86,8,9,10,9,12,9,89,
 9,9,1,10,1,10,1,10,3,10,94,8,10,1,11,1,11,1,11,1,11,1,11,1,11,1,11,1,11,
-1,11,1,11,1,11,1,11,5,11,108,8,11,10,11,12,11,111,9,11,1,12,1,12,1,12,1,
-12,1,12,1,12,3,12,119,8,12,1,12,0,1,22,13,0,2,4,6,8,10,12,14,16,18,20,22,
-24,0,3,1,0,9,12,1,0,14,17,2,0,13,13,18,19,125,0,26,1,0,0,0,2,31,1,0,0,0,
-4,40,1,0,0,0,6,42,1,0,0,0,8,50,1,0,0,0,10,57,1,0,0,0,12,61,1,0,0,0,14,65,
-1,0,0,0,16,79,1,0,0,0,18,82,1,0,0,0,20,90,1,0,0,0,22,95,1,0,0,0,24,118,1,
-0,0,0,26,27,3,2,1,0,27,1,1,0,0,0,28,30,3,4,2,0,29,28,1,0,0,0,30,33,1,0,0,
-0,31,29,1,0,0,0,31,32,1,0,0,0,32,3,1,0,0,0,33,31,1,0,0,0,34,41,3,6,3,0,35,
-41,3,8,4,0,36,41,3,12,6,0,37,41,3,16,8,0,38,41,3,22,11,0,39,41,5,24,0,0,
-40,34,1,0,0,0,40,35,1,0,0,0,40,36,1,0,0,0,40,37,1,0,0,0,40,38,1,0,0,0,40,
-39,1,0,0,0,41,5,1,0,0,0,42,44,5,22,0,0,43,45,3,4,2,0,44,43,1,0,0,0,45,46,
-1,0,0,0,46,44,1,0,0,0,46,47,1,0,0,0,47,48,1,0,0,0,48,49,5,23,0,0,49,7,1,
-0,0,0,50,51,5,2,0,0,51,52,3,10,5,0,52,55,3,6,3,0,53,54,5,3,0,0,54,56,3,6,
-3,0,55,53,1,0,0,0,55,56,1,0,0,0,56,9,1,0,0,0,57,58,5,20,0,0,58,59,3,22,11,
-0,59,60,5,21,0,0,60,11,1,0,0,0,61,62,5,4,0,0,62,63,3,14,7,0,63,64,3,6,3,
-0,64,13,1,0,0,0,65,67,5,20,0,0,66,68,3,16,8,0,67,66,1,0,0,0,67,68,1,0,0,
-0,68,69,1,0,0,0,69,71,5,24,0,0,70,72,3,22,11,0,71,70,1,0,0,0,71,72,1,0,0,
-0,72,73,1,0,0,0,73,75,5,24,0,0,74,76,3,22,11,0,75,74,1,0,0,0,75,76,1,0,0,
-0,76,77,1,0,0,0,77,78,5,21,0,0,78,15,1,0,0,0,79,80,5,5,0,0,80,81,3,18,9,
-0,81,17,1,0,0,0,82,87,3,20,10,0,83,84,5,1,0,0,84,86,3,20,10,0,85,83,1,0,
-0,0,86,89,1,0,0,0,87,85,1,0,0,0,87,88,1,0,0,0,88,19,1,0,0,0,89,87,1,0,0,
-0,90,93,5,7,0,0,91,92,5,13,0,0,92,94,3,22,11,0,93,91,1,0,0,0,93,94,1,0,0,
-0,94,21,1,0,0,0,95,96,6,11,-1,0,96,97,3,24,12,0,97,109,1,0,0,0,98,99,10,
-3,0,0,99,100,7,0,0,0,100,108,3,22,11,4,101,102,10,2,0,0,102,103,7,1,0,0,
-103,108,3,22,11,3,104,105,10,1,0,0,105,106,7,2,0,0,106,108,3,22,11,2,107,
-98,1,0,0,0,107,101,1,0,0,0,107,104,1,0,0,0,108,111,1,0,0,0,109,107,1,0,0,
-0,109,110,1,0,0,0,110,23,1,0,0,0,111,109,1,0,0,0,112,113,5,20,0,0,113,114,
-3,22,11,0,114,115,5,21,0,0,115,119,1,0,0,0,116,119,5,6,0,0,117,119,5,7,0,
-0,118,112,1,0,0,0,118,116,1,0,0,0,118,117,1,0,0,0,119,25,1,0,0,0,12,31,40,
-46,55,67,71,75,87,93,107,109,118];
+1,11,1,11,1,11,1,11,1,11,1,11,1,11,5,11,111,8,11,10,11,12,11,114,9,11,1,
+12,1,12,1,12,1,12,1,12,1,12,3,12,122,8,12,1,12,0,1,22,13,0,2,4,6,8,10,12,
+14,16,18,20,22,24,0,4,1,0,11,12,1,0,9,10,1,0,14,17,2,0,13,13,18,19,129,0,
+26,1,0,0,0,2,31,1,0,0,0,4,40,1,0,0,0,6,42,1,0,0,0,8,50,1,0,0,0,10,57,1,0,
+0,0,12,61,1,0,0,0,14,65,1,0,0,0,16,79,1,0,0,0,18,82,1,0,0,0,20,90,1,0,0,
+0,22,95,1,0,0,0,24,121,1,0,0,0,26,27,3,2,1,0,27,1,1,0,0,0,28,30,3,4,2,0,
+29,28,1,0,0,0,30,33,1,0,0,0,31,29,1,0,0,0,31,32,1,0,0,0,32,3,1,0,0,0,33,
+31,1,0,0,0,34,41,3,6,3,0,35,41,3,8,4,0,36,41,3,12,6,0,37,41,3,16,8,0,38,
+41,3,22,11,0,39,41,5,24,0,0,40,34,1,0,0,0,40,35,1,0,0,0,40,36,1,0,0,0,40,
+37,1,0,0,0,40,38,1,0,0,0,40,39,1,0,0,0,41,5,1,0,0,0,42,44,5,22,0,0,43,45,
+3,4,2,0,44,43,1,0,0,0,45,46,1,0,0,0,46,44,1,0,0,0,46,47,1,0,0,0,47,48,1,
+0,0,0,48,49,5,23,0,0,49,7,1,0,0,0,50,51,5,2,0,0,51,52,3,10,5,0,52,55,3,6,
+3,0,53,54,5,3,0,0,54,56,3,6,3,0,55,53,1,0,0,0,55,56,1,0,0,0,56,9,1,0,0,0,
+57,58,5,20,0,0,58,59,3,22,11,0,59,60,5,21,0,0,60,11,1,0,0,0,61,62,5,4,0,
+0,62,63,3,14,7,0,63,64,3,6,3,0,64,13,1,0,0,0,65,67,5,20,0,0,66,68,3,16,8,
+0,67,66,1,0,0,0,67,68,1,0,0,0,68,69,1,0,0,0,69,71,5,24,0,0,70,72,3,22,11,
+0,71,70,1,0,0,0,71,72,1,0,0,0,72,73,1,0,0,0,73,75,5,24,0,0,74,76,3,22,11,
+0,75,74,1,0,0,0,75,76,1,0,0,0,76,77,1,0,0,0,77,78,5,21,0,0,78,15,1,0,0,0,
+79,80,5,5,0,0,80,81,3,18,9,0,81,17,1,0,0,0,82,87,3,20,10,0,83,84,5,1,0,0,
+84,86,3,20,10,0,85,83,1,0,0,0,86,89,1,0,0,0,87,85,1,0,0,0,87,88,1,0,0,0,
+88,19,1,0,0,0,89,87,1,0,0,0,90,93,5,7,0,0,91,92,5,13,0,0,92,94,3,22,11,0,
+93,91,1,0,0,0,93,94,1,0,0,0,94,21,1,0,0,0,95,96,6,11,-1,0,96,97,3,24,12,
+0,97,112,1,0,0,0,98,99,10,4,0,0,99,100,7,0,0,0,100,111,3,22,11,5,101,102,
+10,3,0,0,102,103,7,1,0,0,103,111,3,22,11,4,104,105,10,2,0,0,105,106,7,2,
+0,0,106,111,3,22,11,3,107,108,10,1,0,0,108,109,7,3,0,0,109,111,3,22,11,2,
+110,98,1,0,0,0,110,101,1,0,0,0,110,104,1,0,0,0,110,107,1,0,0,0,111,114,1,
+0,0,0,112,110,1,0,0,0,112,113,1,0,0,0,113,23,1,0,0,0,114,112,1,0,0,0,115,
+116,5,20,0,0,116,117,3,22,11,0,117,118,5,21,0,0,118,122,1,0,0,0,119,122,
+5,6,0,0,120,122,5,7,0,0,121,115,1,0,0,0,121,119,1,0,0,0,121,120,1,0,0,0,
+122,25,1,0,0,0,12,31,40,46,55,67,71,75,87,93,110,112,121];
 
 
 const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -89,10 +90,12 @@ export default class BrokenScriptParser extends antlr4.Parser {
     expression_sempred(localctx, predIndex) {
     	switch(predIndex) {
     		case 0:
-    			return this.precpred(this._ctx, 3);
+    			return this.precpred(this._ctx, 4);
     		case 1:
-    			return this.precpred(this._ctx, 2);
+    			return this.precpred(this._ctx, 3);
     		case 2:
+    			return this.precpred(this._ctx, 2);
+    		case 3:
     			return this.precpred(this._ctx, 1);
     		default:
     			throw "No predicate with index:" + predIndex;
@@ -366,7 +369,7 @@ export default class BrokenScriptParser extends antlr4.Parser {
 	        _la = this._input.LA(1);
 	        if((((_la) & ~0x1f) == 0 && ((1 << _la) & 1048768) !== 0)) {
 	            this.state = 70;
-	            this.expression(0);
+	            localctx.forControl = this.expression(0);
 	        }
 
 	        this.state = 73;
@@ -507,7 +510,7 @@ export default class BrokenScriptParser extends antlr4.Parser {
 	        this.state = 96;
 	        this.primary();
 	        this._ctx.stop = this._input.LT(-1);
-	        this.state = 109;
+	        this.state = 112;
 	        this._errHandler.sync(this);
 	        var _alt = this._interp.adaptivePredict(this._input,10,this._ctx)
 	        while(_alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER) {
@@ -516,7 +519,7 @@ export default class BrokenScriptParser extends antlr4.Parser {
 	                    this.triggerExitRuleEvent();
 	                }
 	                _prevctx = localctx;
-	                this.state = 107;
+	                this.state = 110;
 	                this._errHandler.sync(this);
 	                var la_ = this._interp.adaptivePredict(this._input,9,this._ctx);
 	                switch(la_) {
@@ -524,13 +527,13 @@ export default class BrokenScriptParser extends antlr4.Parser {
 	                    localctx = new ExpressionContext(this, _parentctx, _parentState);
 	                    this.pushNewRecursionContext(localctx, _startState, BrokenScriptParser.RULE_expression);
 	                    this.state = 98;
-	                    if (!( this.precpred(this._ctx, 3))) {
-	                        throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 3)");
+	                    if (!( this.precpred(this._ctx, 4))) {
+	                        throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 4)");
 	                    }
 	                    this.state = 99;
 	                    localctx.bop = this._input.LT(1);
 	                    _la = this._input.LA(1);
-	                    if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & 7680) !== 0))) {
+	                    if(!(_la===11 || _la===12)) {
 	                        localctx.bop = this._errHandler.recoverInline(this);
 	                    }
 	                    else {
@@ -538,17 +541,38 @@ export default class BrokenScriptParser extends antlr4.Parser {
 	                        this.consume();
 	                    }
 	                    this.state = 100;
-	                    this.expression(4);
+	                    this.expression(5);
 	                    break;
 
 	                case 2:
 	                    localctx = new ExpressionContext(this, _parentctx, _parentState);
 	                    this.pushNewRecursionContext(localctx, _startState, BrokenScriptParser.RULE_expression);
 	                    this.state = 101;
+	                    if (!( this.precpred(this._ctx, 3))) {
+	                        throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 3)");
+	                    }
+	                    this.state = 102;
+	                    localctx.bop = this._input.LT(1);
+	                    _la = this._input.LA(1);
+	                    if(!(_la===9 || _la===10)) {
+	                        localctx.bop = this._errHandler.recoverInline(this);
+	                    }
+	                    else {
+	                    	this._errHandler.reportMatch(this);
+	                        this.consume();
+	                    }
+	                    this.state = 103;
+	                    this.expression(4);
+	                    break;
+
+	                case 3:
+	                    localctx = new ExpressionContext(this, _parentctx, _parentState);
+	                    this.pushNewRecursionContext(localctx, _startState, BrokenScriptParser.RULE_expression);
+	                    this.state = 104;
 	                    if (!( this.precpred(this._ctx, 2))) {
 	                        throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 2)");
 	                    }
-	                    this.state = 102;
+	                    this.state = 105;
 	                    localctx.bop = this._input.LT(1);
 	                    _la = this._input.LA(1);
 	                    if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & 245760) !== 0))) {
@@ -558,18 +582,18 @@ export default class BrokenScriptParser extends antlr4.Parser {
 	                    	this._errHandler.reportMatch(this);
 	                        this.consume();
 	                    }
-	                    this.state = 103;
+	                    this.state = 106;
 	                    this.expression(3);
 	                    break;
 
-	                case 3:
+	                case 4:
 	                    localctx = new ExpressionContext(this, _parentctx, _parentState);
 	                    this.pushNewRecursionContext(localctx, _startState, BrokenScriptParser.RULE_expression);
-	                    this.state = 104;
+	                    this.state = 107;
 	                    if (!( this.precpred(this._ctx, 1))) {
 	                        throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 1)");
 	                    }
-	                    this.state = 105;
+	                    this.state = 108;
 	                    localctx.bop = this._input.LT(1);
 	                    _la = this._input.LA(1);
 	                    if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & 794624) !== 0))) {
@@ -579,13 +603,13 @@ export default class BrokenScriptParser extends antlr4.Parser {
 	                    	this._errHandler.reportMatch(this);
 	                        this.consume();
 	                    }
-	                    this.state = 106;
+	                    this.state = 109;
 	                    this.expression(2);
 	                    break;
 
 	                } 
 	            }
-	            this.state = 111;
+	            this.state = 114;
 	            this._errHandler.sync(this);
 	            _alt = this._interp.adaptivePredict(this._input,10,this._ctx);
 	        }
@@ -610,26 +634,26 @@ export default class BrokenScriptParser extends antlr4.Parser {
 	    let localctx = new PrimaryContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 24, BrokenScriptParser.RULE_primary);
 	    try {
-	        this.state = 118;
+	        this.state = 121;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
 	        case 20:
 	            this.enterOuterAlt(localctx, 1);
-	            this.state = 112;
+	            this.state = 115;
 	            this.match(BrokenScriptParser.LPAREN);
-	            this.state = 113;
+	            this.state = 116;
 	            this.expression(0);
-	            this.state = 114;
+	            this.state = 117;
 	            this.match(BrokenScriptParser.RPAREN);
 	            break;
 	        case 6:
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 116;
+	            this.state = 119;
 	            this.match(BrokenScriptParser.IntLiteral);
 	            break;
 	        case 7:
 	            this.enterOuterAlt(localctx, 3);
-	            this.state = 117;
+	            this.state = 120;
 	            this.match(BrokenScriptParser.Identifier);
 	            break;
 	        default:
@@ -1084,6 +1108,7 @@ class ForExpressionListContext extends antlr4.ParserRuleContext {
         this.parser = parser;
         this.ruleIndex = BrokenScriptParser.RULE_forExpressionList;
         this.forInit = null; // VariableStatementContext
+        this.forControl = null; // ExpressionContext
         this.forUpdate = null; // ExpressionContext
     }
 
@@ -1107,6 +1132,10 @@ class ForExpressionListContext extends antlr4.ParserRuleContext {
 	    return this.getToken(BrokenScriptParser.RPAREN, 0);
 	};
 
+	variableStatement() {
+	    return this.getTypedRuleContext(VariableStatementContext,0);
+	};
+
 	expression = function(i) {
 	    if(i===undefined) {
 	        i = null;
@@ -1116,10 +1145,6 @@ class ForExpressionListContext extends antlr4.ParserRuleContext {
 	    } else {
 	        return this.getTypedRuleContext(ExpressionContext,i);
 	    }
-	};
-
-	variableStatement() {
-	    return this.getTypedRuleContext(VariableStatementContext,0);
 	};
 
 	enterRule(listener) {
@@ -1325,20 +1350,20 @@ class ExpressionContext extends antlr4.ParserRuleContext {
 	    }
 	};
 
-	ADD() {
-	    return this.getToken(BrokenScriptParser.ADD, 0);
-	};
-
-	SUB() {
-	    return this.getToken(BrokenScriptParser.SUB, 0);
-	};
-
 	MUL() {
 	    return this.getToken(BrokenScriptParser.MUL, 0);
 	};
 
 	DIV() {
 	    return this.getToken(BrokenScriptParser.DIV, 0);
+	};
+
+	ADD() {
+	    return this.getToken(BrokenScriptParser.ADD, 0);
+	};
+
+	SUB() {
+	    return this.getToken(BrokenScriptParser.SUB, 0);
 	};
 
 	GT() {
